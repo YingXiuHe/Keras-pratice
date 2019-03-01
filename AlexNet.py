@@ -28,6 +28,7 @@ model.add(Dropout(0.5))
 model.add(Dense(1000, activation='softmax', name='predicts'))
 
 model.summary()
+model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['acc'])
 
 plot_model(model, to_file='AlexNet.png')
 Image('AlexNet.png')
