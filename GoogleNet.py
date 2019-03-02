@@ -5,7 +5,7 @@ from keras.utils import plot_model
 from keras.models import Sequential, Model
 from IPython.display import Image
 
-
+#outputs
 def Pridect(x):
     x = AveragePooling2D(pool_size=(5,5), strides=(3,3), padding='same')(x)
     x = Conv2D(128, kernel_size=(1,1), strides=(1,1), padding='same', activation='relu')(x)
@@ -16,6 +16,7 @@ def Pridect(x):
 
     return x
 
+#create inception block
 def Inception(x, filters):
     branch1 = Conv2D(filters[0], kernel_size=(1,1), strides=(1, 1), padding='same')(x)
 
@@ -33,6 +34,7 @@ def Inception(x, filters):
     return x
 
 
+#Creat GoogleNet 
 input = Input(shape=(224, 224, 3))
 classes = 1000
 
@@ -64,6 +66,7 @@ output3 = Dense(classes, activation='softmax',name='pridects')(x)
 
 model = Model(inputs=input, outputs=[output1, output2, output3])
 model.summary()
-    
+
+#draw the network's structure diagram
 plot_model(model=model, to_file='GoogleNet.png')
 Image('GoogleNet.png')
