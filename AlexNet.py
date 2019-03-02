@@ -6,6 +6,10 @@ from keras.models import Sequential, Model
 from keras.utils import plot_model
 from IPython.display import Image
 
+‘’‘
+paper‘s URL http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf 
+’‘’
+
 input_shape = (227,227,3)
 model = Sequential(name='AlexNet')
 
